@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, 'Segoe UI', 'Courier new'
+  
+}
+:root {
+  --primary-color: blue;
+  --secondary-color: rgb(0, 0, 220);
+  --primary-text-color: lightgray;
+  --secondary-text-color: rgb(100,225,100);
+}
+body {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  margin: 0;
+}
+.error {
+  padding: 5vw;
+  font-size: larger;
+}
+.reaaliaika {
+  color: var(--secondary-text-color);
+}
+.taulu-otsikot {
+  font-size: 3.5vw;
+  background-color: var(--secondary-color);
+  padding: 10px 25px;
+}
+.aikataulu-rivi {
+  padding: 3vh;
+  width: 100%;
+  font-size: 4vw;
+  font-weight: bold;
+}
+.aikataulu-aika {
+  display: inline-block;
+  width: 18%;
+}
+.aikataulu-linja {
+  display: inline-block;
+  width: 15%;
+}
+.aikataulu-maaranpaa {
+  font-size: 3vw;
+  display: inline-block;
+}
+.aikataulu > div {
+  border-bottom: 1px solid var(--primary-text-color);
+}
+
+.otsikko {
+  font-size: 5.5vw;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.8);
+  animation:1s modali ease-in-out;
+  z-index: 100;
+}
+
+.modal-content {
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid var(--primary-text-color);
+  box-shadow: 10px 10px 10px 5px black ;
+  animation: 1s modaliContent ease-in-out;
+}
+.modal-buttons {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-around;
+}
+.modal-content input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 7px;
+  border: 1px solid black;
+  font-size: larger;
+
+}
+.modal-content button:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+  transition: .2s;
+}
+.modal-content button {
+  border-radius: 7px;
+  border: 1px solid black;
+  font-size: larger;
+  padding: 10px 20px;
+  color: var(--primary-text-color);
+  box-shadow: 2px 2px 2px black;
+  margin: 5px 0px;
+}
+.ok-button {
+  background-color: rgb(0,200,0);
+}
+.cancel-button {
+  background-color: red;
+}
+.setupNappi {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.3);
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.8);
+  font-weight: bold;
+  font-size: 35px;
+  cursor: pointer;
+}
+.reaaliaika .aikataulu-aika::after {
+  z-index: 1;
+  vertical-align: text-top;
+  font-size: 1.5vw;
+  content: '📡';
+  animation: 5s infinite blinkki ease-in-out;
+}
+@keyframes blinkki {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes modali {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes modaliContent {
+  0% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
